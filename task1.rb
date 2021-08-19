@@ -6,6 +6,10 @@ class Hello
   def initialize(word)
     @word = word
   end
+  
+  def to_s
+    "Hello, #{word}!"
+  end
 
   def say
     puts "Hello, #{word}!"
@@ -14,4 +18,4 @@ end
 
 hello = Hello.new('wolrd')
 hello.say
-puts hello # пока хз как сделать, нужно переопределять путс?
+puts hello
