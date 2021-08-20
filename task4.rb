@@ -6,11 +6,11 @@ class Foo
     @hash = hash
   end
 
-  def method_missing(name)
-    if @hash.key?(name)
-      puts @hash[name]
+  def method_missing(method)
+    if @hash.key? method
+      @hash[method] 
     else
-      puts 'такого ключа нет'
+      raise NoMethodError.new("Method #{method} doesn't exist.")
     end
   end
 end
@@ -20,7 +20,7 @@ hui = {
   in_cold_Ura: 15
 }
 foo = Foo.new(hui)
-foo.huilo
-foo.in_cold_water
-foo.in_cold_Ura
-foo.in_Senpai
+puts foo.in_cold_water
+puts foo.in_cold_Ura
+puts foo.in_Senpai
+puts foo.huilo
